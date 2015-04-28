@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <TEST_TABLE test_table_pk_col="1" 
+    			date_created="2015-03-11 12:00:05"
+    			date_modified="2015-03-12 12:00:05"
+                transaction_id="11111" 
+                version="2" /> 
+    <TEST_TABLE test_table_pk_col="2" 
+    			date_created="2015-03-11 12:00:05"
+                transaction_id="22222" 
+                version="1"/> 
+    <TEST_TABLE test_table_pk_col="3" 
+    			date_created="2015-03-11 12:00:05"
+    			date_modified="2015-03-12 12:00:05"
+                transaction_id="33330"  
+                version="2"/>
+    <TEST_TABLE test_table_pk_col="5" 
+    			date_created="[yesterday]"
+                transaction_id="33331" 
+                version="1" />                      
+  	<TEST_TABLE test_table_pk_col="6" 
+    			date_created="[yesterday]"
+    			date_modified="[10MinAgo]"
+                transaction_id="33332" 
+                version="2" />
+    <TEST_TABLE test_table_pk_col="7" 
+    			date_created="[yesterday]"
+    			date_modified="[now]"
+                transaction_id="33334"  
+                version="2"/>             
+  	<TEST_TABLE test_table_pk_col="8" 
+    			date_created="[yesterday]"
+    			date_modified="[9MinAgo]"
+                transaction_id="33336"  
+                version="2"/>                     
+	<TEST_TABLE_DETAIL test_table_det_pk_col="100"
+				test_table_pk_col="1"
+				date_created="2015-03-14 12:00:09"
+				detail="Summary" />
+				                
+</dataset>
