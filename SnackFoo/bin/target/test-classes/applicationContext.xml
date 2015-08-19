@@ -20,8 +20,11 @@
 	
 	<context:component-scan	base-package="net.davekieras" />
 	
+	<context:property-placeholder location="classpath:/snackFoo.properties" />
+	
 	<bean class="net.davekieras.properties.impl.SnackFooPropertiesImpl" id="snackFooProperties" scope="singleton">
-		<property name="path" value="${path}" />
+		<property name="snackListUrl" value="${snackListUrl}" />
+		<property name="snackSuggestionUrl" value="${snackSuggestionUrl}" />
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>

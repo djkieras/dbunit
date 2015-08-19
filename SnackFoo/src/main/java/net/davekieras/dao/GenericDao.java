@@ -1,5 +1,6 @@
 package net.davekieras.dao;
 
+
 public interface GenericDao<T> {
 
     public void persist(T entity);

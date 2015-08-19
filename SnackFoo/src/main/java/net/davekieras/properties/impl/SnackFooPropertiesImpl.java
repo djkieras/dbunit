@@ -1,10 +1,7 @@
 package net.davekieras.properties.impl;
 
-import org.springframework.stereotype.Component;
-
 import net.davekieras.properties.SnackFooProperties;
 
-@Component
 public class SnackFooPropertiesImpl implements SnackFooProperties {
 
 	private String snackListUrl;

@@ -42,11 +42,11 @@ public abstract class AbstractMockServerTest {
         server = new HttpTestServer();
         server.start();
         LOG.info("Server port is set to " + server.getPort());
-        getSnackFooProperties().setSnackListUrl("http://localhost:" + server.getPort());
-        getSnackFooProperties().setSnackSuggestionUrl("http://localhost:" + server.getPort());
+        getApplicantServicesProperties().setSnackListUrl("http://localhost:" + server.getPort());
+        getApplicantServicesProperties().setSnackSuggestionUrl("http://localhost:" + server.getPort());
     }
  
-	public SnackFooProperties getSnackFooProperties() {
+	public SnackFooProperties getApplicantServicesProperties() {
 		return this.props;
 	}
 	
