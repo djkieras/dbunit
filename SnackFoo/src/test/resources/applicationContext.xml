@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context 
+		 http://www.springframework.org/schema/context/spring-context-4.0.xsd
+         http://www.springframework.org/schema/jdbc 
+         http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<context:annotation-config/>
+	
+	<context:spring-configured />
+	
+	<context:component-scan	base-package="net.davekieras" />
+	
+	<context:property-placeholder location="classpath:/snackFoo.properties" />
+	
+	<bean class="net.davekieras.properties.impl.SnackFooPropertiesImpl" id="snackFooProperties" scope="singleton">
+		<property name="snackListUrl" value="${snackListUrl}" />
+		<property name="snackSuggestionUrl" value="${snackSuggestionUrl}" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<jdbc:embedded-database type="H2" id="dataSource">
+		<jdbc:script location="classpath:h2_setup.sql" />
+	</jdbc:embedded-database>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+      <property name="entityManagerFactory" ref="entityManagerFactory" />
+   	</bean>
+   	
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="dataSource" ref="dataSource" />
+        <property name="persistenceUnitName" value="JpaPersistenceUnit"/>
+        <property name="packagesToScan" value="net.davekieras" />
+        <property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>	
+    </bean>
+
+</beans>
+
