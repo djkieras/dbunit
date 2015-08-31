@@ -69,7 +69,7 @@ public class HttpTestServer {
                 setResponseBody(getMockResponseData());
                 setRequestBody(IOUtils.toString(baseRequest.getInputStream()));
                 response.setStatus(SC_OK);
-                response.setContentType("text/xml;charset=utf-8");
+                response.setContentType("text/json;charset=utf-8");
                 write(getResponseBody(), response.getOutputStream());
                 baseRequest.setHandled(true);
             }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 6,
+    "name": "Gorp",
+    "optional": true,
+    "purchaseLocations":  "John's Grocery, Corner C-Store",
+    "purchaseCount": 0,
+    "lastPurchaseDate": null
+  },
+  {
+    "id": 17,
+    "name": "Bacon Jerky",
+    "optional": false,
+    "purchaseLocations": "John's Grocery",
+    "purchaseCount": 542,
+    "lastPurchaseDate": "8/18/2015"
+  },
+  {
+    "id": 18,
+    "name": "Beef Jerky",
+    "optional": false,
+    "purchaseLocations": null,
+    "purchaseCount": 5,
+    "lastPurchaseDate": "8/19/2015"
+  }  
+]
